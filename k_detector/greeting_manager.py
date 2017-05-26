@@ -5,10 +5,10 @@ from threading import Timer
 
 class GreetingManager:
 
-    def __init__(self, greeting_timeout):
+    def __init__(self, greeting_timeout, host):
         self.greeting_timeout = greeting_timeout
         self.mqtt_client = mqtt.Client()
-        self.mqtt_client.connect("192.168.0.102", port=1883, keepalive=60, bind_address="")
+        self.mqtt_client.connect(host, port=1883, keepalive=60, bind_address="")
         self.people_greeted = dict()
 
     def greet(self, name):
